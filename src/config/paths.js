@@ -1,0 +1,11 @@
+// export const BASE_URL = "https://430d9a94.ngrok.io/api";
+export const BASE_URL = "http://192.168.0.5:3000/api";
+export const LOGIN = BASE_URL + "/user/login"
+export const SIGNUP = ""
+export const GET_ALL_GYM_LIST = BASE_URL + "/gym"
+export const GET_ALL_VIDEOS_PARTICULAR_GYM = ""
+export const UPDATE_USER = ""
+export const DELETE_USER = ""
+export const LIKE_VIDEO = ""
+export const SUBSCRIBE_GYM = ""
+export const UPLOAD_VIDEO = BASE_URL + "/gym/upload"

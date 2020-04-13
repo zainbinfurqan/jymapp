@@ -12,6 +12,11 @@ export default class UserDashboard extends Component {
             data: [{ name: '1' }, { name: '2' }, { name: '3' }, { name: '4' }, { name: '5' }]
         }
     }
+
+    UploadVideoForm = () => {
+        this.props.navigation.navigate('SignleJymVideos')
+    }
+
     render() {
         return (
             <>
@@ -52,7 +57,7 @@ export default class UserDashboard extends Component {
                                 {this.state.data.map(itm => {
                                     return (
                                         <View style={{ width: '50%' }}>
-                                            <Card style={{height:150}} >
+                                            <Card style={{ height: 150 }} >
                                                 <CardItem >
                                                     <Body style={{ color: '#43A3E3' }}>
                                                         <Text>{itm.name}</Text>

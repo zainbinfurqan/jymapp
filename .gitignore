@@ -30,7 +30,7 @@ local.properties
 *.iml
 
 .env/
-
+.keystore
 
 # node.js
 #

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, Input, Item, Button, Switch, Left } from 'native-base'
 import { ScrollView, SafeAreaView } from 'react-native-gesture-handler';
-export default class SignUp extends Component {
+import { connect } from "react-redux";
+
+class SignUp extends Component {
     constructor() {
         super()
         this.state = {
@@ -36,9 +38,9 @@ export default class SignUp extends Component {
                         <Item regular style={{ margin: 5 }}>
                             <Input placeholder='age' />
                         </Item>
-                        <View style={{alignItems:'flex-start',margin:5,flex:1,flexDirection:'row'}}>
+                        <View style={{ alignItems: 'flex-start', margin: 5, flex: 1, flexDirection: 'row' }}>
                             <Text>As Jym Owner</Text>
-                            <Switch value={true} style={{marginTop:0.2}}/>
+                            <Switch value={true} style={{ marginTop: 0.2 }} />
                         </View>
                         <Button success style={{ alignContent: 'center' }}>
                             <Text style={{ textAlign: 'center', width: '100%' }}>Success</Text>
@@ -50,3 +52,17 @@ export default class SignUp extends Component {
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        authData: state.authData
+    };
+};
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//     };
+// };
+export default connect(
+    mapStateToProps,
+     null
+)(SignUp);
