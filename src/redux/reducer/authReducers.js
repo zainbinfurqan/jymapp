@@ -1,15 +1,11 @@
 
 
 import LoginAction from '../actions/authActions'
-
-
 const initialState = {
     isLoadng: false,
     isLogin: false,
     isJymOwner: false
 };
-
-
 const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
         case LoginAction.LOGIN_REQUEST:
@@ -36,5 +32,4 @@ const LoginReducer = (state = initialState, action) => {
             };
     }
 };
-
 export default LoginReducer;

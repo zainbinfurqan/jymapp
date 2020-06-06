@@ -39,12 +39,18 @@ import { AsyncStorage } from 'react-native';
 import { Provider } from 'react-redux';
 import { connect } from "react-redux";
 import EntrPoint from './src'
-
+import ErrorValidation from './src/pages/ErrorValidation'
 import configureStore from './src/redux';
 
+//---------------------
+import ProductList from './src/demoScreens/ProductList'
+import ProductDetail from './src/demoScreens/ProductDetail'
+import AudioMusic from './src/demoScreens/MusicScreen'
+import SingleProduct from './src/demoScreens/SingleProduct'
+import HomePage from './src/pages/HomePage'
 const store = configureStore()
 
-// const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 // const Drawer = createDrawerNavigator();
 // const MainDashBoard = () => (
 //   <Stack.Navigator>
@@ -96,7 +102,18 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <EntrPoint />
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{
+            headerShown: false
+          }}>
+            <Stack.Screen name="ErrorValidation" component={ErrorValidation} />
+          </Stack.Navigator>
+        </NavigationContainer >
+        {/* <EntrPoint /> */}
+        {/* <ProductList/> */}
+        {/* <ProductDetail /> */}
+        {/* <AudioMusic /> */}
+        {/* <SingleProduct/> */}
         {/* {console.log(islogin, isJymOwner)} */}
         {/* {islogin ? <NavigationContainer>
           <Drawer.Navigator initialRouteName="MainDashboard">

@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Loading } from '../../component/loading'
 import { View, Item, Input, Switch, Button, Text } from 'native-base';
-import ImagePicker from 'react-native-image-picker';
 import gymMiddleware from '../../redux/middleware/gymMiddleware';
 import axios from 'axios'
 import { Platform } from 'react-native'
+import ImagePicker from 'react-native-image-picker';
 import RNFetchBlob from 'rn-fetch-blob'
-console.log(Platform.OS)
-// const options = {
-//     title: 'Video Picker',
-//     mediaType: 'video',
-//     storageOptions: {
-//         skipBackup: true,
-//         path: 'images'
-//     }
-// };
+const options = {
+    title: 'Video Picker',
+    mediaType: 'video',
+    storageOptions: {
+        skipBackup: true,
+        path: 'images'
+    }
+};
 
 const createFormData = (photo, body) => {
     const data = new FormData();
@@ -52,17 +51,12 @@ class UploadVideoForm extends Component {
             noData: true,
         }
         ImagePicker.showImagePicker(options, response => {
+            //response will give you two main params , uri and path ,
             if (response.uri) {
                 console.log(response)
                 this.setState({ videoData: response })
             }
         })
-
-        // ImagePicker.showImagePicker(options, response => {
-        //     if (response.uri) {
-        //         this.setState({ videoData: response })
-        //     }
-        // })
     }
 
     changeText = (e, key) => {
@@ -80,16 +74,18 @@ class UploadVideoForm extends Component {
     handleUploadPhoto = (data) => {
         console.log(data)
 
-        RNFetchBlob.fetch('POST', 'http://192.168.0.5:3000/api/gym/upload', {
+        RNFetchBlob.fetch('POST', 'http://192.168.0.5:3000/api/carrier/uploaddoc', {
             'Content-Type': 'multipart/form-data',
         }, [
-            { name: 'video', filename: data.fileName, type: data.type, data: RNFetchBlob.wrap(data.path) },
+            //--------1 line------//
+            { name: 'doc', filename: data.fileName, type: data.type, data: RNFetchBlob.wrap(data.path) },
+            //--------2 line------//
             {
                 name: 'info', data: JSON.stringify({
-                    videoTitle: 'example@example.com',
-                    videoDiscription: '12345678',
-                    paid: false,
-                    gymId: '5e819dbac2a5dd13247a3f38',
+                    folder: 'xbx',
+                    type: 'xbx',
+                    docName: 'xbx',
+                    userId: '5e819dbac2a5dd13247a3f38',
                 })
             },
 
