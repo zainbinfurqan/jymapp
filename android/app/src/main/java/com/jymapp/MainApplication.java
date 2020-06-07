@@ -1,4 +1,6 @@
 package com.jymapp;
+import com.hoxfon.react.RNTwilioVoice.TwilioVoicePackage;  // <--- Import Package 
+
 
 import android.app.Application;
 import android.content.Context;
@@ -26,6 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
+            new TwilioVoicePackage();         // <---- Add the Package : by default it will ask microphone permissions 
+                // new TwilioVoicePackage(false) // <---- pass false to handle microphone permissions in your application
           return packages;
         }
 

@@ -41,7 +41,7 @@ import { connect } from "react-redux";
 import EntrPoint from './src'
 import ErrorValidation from './src/pages/ErrorValidation'
 import configureStore from './src/redux';
-
+import ImageGallery from './src/component/ImageGallery'
 //---------------------
 import ProductList from './src/demoScreens/ProductList'
 import ProductDetail from './src/demoScreens/ProductDetail'
@@ -102,13 +102,22 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <NavigationContainer>
+        <ImageGallery Images={[
+          'https://www.gstatic.com/webp/gallery/1.jpg',
+          'https://www.gstatic.com/webp/gallery/2.webp',
+          'https://www.gstatic.com/webp/gallery/5.webp',
+          'https://www.gstatic.com/webp/gallery/3.webp',
+          'https://www.gstatic.com/webp/gallery3/5_webp_ll.png',
+          'https://www.gstatic.com/webp/gallery3/5_webp_ll.png',
+          'https://www.gstatic.com/webp/gallery3/5_webp_ll.png',
+        ]} />
+        {/* <NavigationContainer>
           <Stack.Navigator screenOptions={{
             headerShown: false
           }}>
-            <Stack.Screen name="ErrorValidation" component={ErrorValidation} />
+            <Stack.Screen name="ImageGallery" component={ImageGallery} />
           </Stack.Navigator>
-        </NavigationContainer >
+        </NavigationContainer > */}
         {/* <EntrPoint /> */}
         {/* <ProductList/> */}
         {/* <ProductDetail /> */}
